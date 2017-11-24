@@ -309,11 +309,12 @@ declare %private function docbook:code($elem as element()) {
             ()
     return
         if ($lang) then
-            <div class="code" data-language="{$lang}">
+            <pre><code class="{$lang}">
             { replace($elem/string(), "^\s+", "") }
-            </div>
+            </code>
+            </pre>
         else
-            <pre>{ replace($elem/string(), "^\s+", "") }</pre>
+            <pre><code>{ replace($elem/string(), "^\s+", "") }</code></pre>
 };
 
 declare %private function docbook:process-children($elem as element()+) {
